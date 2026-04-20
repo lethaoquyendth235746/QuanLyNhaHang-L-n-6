@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyNhaHang.Data;
 
 namespace QuanLyNhaHang
 {
     public partial class frmDangNhap : Form
     {
+
         public frmDangNhap()
         {
             InitializeComponent();
@@ -19,23 +21,19 @@ namespace QuanLyNhaHang
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            var user = context.NhanVien
-        .FirstOrDefault(p =>
-            p.TenDangNhap == txtTenDangNhap.Text &&
-            p.MatKhau == txtMatKhau.Text &&
-            p.TrangThai == true);
+            this.DialogResult = DialogResult.OK;
+        }
 
-            if (user != null)
-            {
-                MessageBox.Show("Đăng nhập thành công");
+        private void btnHuyBo_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
 
-                frmMain f = new frmMain(user);
-                f.Show();
-                this.Hide();
-            }
-            else
+        private void txtmatkhau_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode ==Keys.Enter)
             {
-                MessageBox.Show("Sai tài khoản hoặc mật khẩu");
+                btnDangNhap_Click(sender, e);
             }
         }
     }

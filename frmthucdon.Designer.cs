@@ -1,6 +1,6 @@
 ﻿namespace QuanLyNhaHang
 {
-    partial class frmdanhmuc
+    partial class frmthucdon
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            dgvThucDon = new DataGridView();
             picTimKiem = new FontAwesome.Sharp.IconPictureBox();
             txtTimKiem = new TextBox();
             btnXoa = new FontAwesome.Sharp.IconButton();
-            btnThemMatHang = new FontAwesome.Sharp.IconButton();
-            dgvDanhMuc = new DataGridView();
+            btnThem = new FontAwesome.Sharp.IconButton();
+            ((System.ComponentModel.ISupportInitialize)dgvThucDon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picTimKiem).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvDanhMuc).BeginInit();
             SuspendLayout();
+            // 
+            // dgvThucDon
+            // 
+            dgvThucDon.AllowUserToAddRows = false;
+            dgvThucDon.AllowUserToDeleteRows = false;
+            dgvThucDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvThucDon.BackgroundColor = Color.White;
+            dgvThucDon.BorderStyle = BorderStyle.None;
+            dgvThucDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvThucDon.Location = new Point(39, 110);
+            dgvThucDon.MultiSelect = false;
+            dgvThucDon.Name = "dgvThucDon";
+            dgvThucDon.ReadOnly = true;
+            dgvThucDon.RowHeadersVisible = false;
+            dgvThucDon.RowHeadersWidth = 51;
+            dgvThucDon.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvThucDon.Size = new Size(1243, 488);
+            dgvThucDon.TabIndex = 16;
+            dgvThucDon.CellContentClick += dgvThucDon_CellContentClick;
             // 
             // picTimKiem
             // 
@@ -45,19 +64,18 @@
             picTimKiem.IconColor = SystemColors.ControlText;
             picTimKiem.IconFont = FontAwesome.Sharp.IconFont.Auto;
             picTimKiem.IconSize = 27;
-            picTimKiem.Location = new Point(582, 98);
+            picTimKiem.Location = new Point(357, 46);
             picTimKiem.Name = "picTimKiem";
             picTimKiem.Size = new Size(28, 27);
-            picTimKiem.TabIndex = 10;
+            picTimKiem.TabIndex = 15;
             picTimKiem.TabStop = false;
             // 
             // txtTimKiem
             // 
-            txtTimKiem.Location = new Point(263, 98);
+            txtTimKiem.Location = new Point(38, 46);
             txtTimKiem.Name = "txtTimKiem";
             txtTimKiem.Size = new Size(313, 27);
-            txtTimKiem.TabIndex = 9;
-            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
+            txtTimKiem.TabIndex = 14;
             // 
             // btnXoa
             // 
@@ -70,78 +88,59 @@
             btnXoa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnXoa.IconSize = 30;
             btnXoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnXoa.Location = new Point(1386, 88);
+            btnXoa.Location = new Point(1161, 36);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(121, 44);
-            btnXoa.TabIndex = 7;
+            btnXoa.TabIndex = 12;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
             btnXoa.Click += btnXoa_Click;
             // 
-            // btnThemMatHang
+            // btnThem
             // 
-            btnThemMatHang.BackColor = Color.RoyalBlue;
-            btnThemMatHang.FlatStyle = FlatStyle.Flat;
-            btnThemMatHang.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnThemMatHang.ForeColor = Color.White;
-            btnThemMatHang.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
-            btnThemMatHang.IconColor = Color.White;
-            btnThemMatHang.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnThemMatHang.IconSize = 30;
-            btnThemMatHang.ImageAlign = ContentAlignment.MiddleLeft;
-            btnThemMatHang.Location = new Point(1165, 88);
-            btnThemMatHang.Name = "btnThemMatHang";
-            btnThemMatHang.Size = new Size(205, 44);
-            btnThemMatHang.TabIndex = 8;
-            btnThemMatHang.Text = "Thêm danh mục";
-            btnThemMatHang.UseVisualStyleBackColor = false;
-            btnThemMatHang.Click += btnThemMatHang_Click;
+            btnThem.BackColor = Color.RoyalBlue;
+            btnThem.FlatStyle = FlatStyle.Flat;
+            btnThem.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThem.ForeColor = Color.White;
+            btnThem.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
+            btnThem.IconColor = Color.White;
+            btnThem.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnThem.IconSize = 30;
+            btnThem.ImageAlign = ContentAlignment.MiddleLeft;
+            btnThem.Location = new Point(940, 36);
+            btnThem.Name = "btnThem";
+            btnThem.Size = new Size(205, 44);
+            btnThem.TabIndex = 13;
+            btnThem.Text = "Thêm thực đơn";
+            btnThem.UseVisualStyleBackColor = false;
+            btnThem.Click += btnThem_Click;
             // 
-            // dgvDanhMuc
-            // 
-            dgvDanhMuc.AllowUserToAddRows = false;
-            dgvDanhMuc.AllowUserToDeleteRows = false;
-            dgvDanhMuc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvDanhMuc.BackgroundColor = Color.White;
-            dgvDanhMuc.BorderStyle = BorderStyle.None;
-            dgvDanhMuc.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDanhMuc.Location = new Point(264, 162);
-            dgvDanhMuc.MultiSelect = false;
-            dgvDanhMuc.Name = "dgvDanhMuc";
-            dgvDanhMuc.ReadOnly = true;
-            dgvDanhMuc.RowHeadersVisible = false;
-            dgvDanhMuc.RowHeadersWidth = 51;
-            dgvDanhMuc.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDanhMuc.Size = new Size(1243, 488);
-            dgvDanhMuc.TabIndex = 11;
-            dgvDanhMuc.CellContentClick += dgvDanhMuc_CellContentClick;
-            // 
-            // frmdanhmuc
+            // frmthucdon
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1637, 681);
-            Controls.Add(dgvDanhMuc);
+            ClientSize = new Size(1321, 635);
+            Controls.Add(dgvThucDon);
             Controls.Add(picTimKiem);
             Controls.Add(txtTimKiem);
             Controls.Add(btnXoa);
-            Controls.Add(btnThemMatHang);
-            Name = "frmdanhmuc";
-            Text = "frmdanhmuc";
-            Load += frmdanhmuc_Load;
+            Controls.Add(btnThem);
+            Name = "frmthucdon";
+            Text = "frmthucdon";
+            Load += frmthucdon_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvThucDon).EndInit();
             ((System.ComponentModel.ISupportInitialize)picTimKiem).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvDanhMuc).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
+        private DataGridView dgvThucDon;
         private FontAwesome.Sharp.IconPictureBox picTimKiem;
         private TextBox txtTimKiem;
         private FontAwesome.Sharp.IconButton btnXoa;
-        private FontAwesome.Sharp.IconButton btnThemMatHang;
-        private DataGridView dgvDanhMuc;
+        private FontAwesome.Sharp.IconButton btnThem;
     }
 }

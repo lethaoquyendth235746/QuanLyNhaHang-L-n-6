@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace QuanLyNhaHang.Data
 {
-    public class DanhMuc
+    public class KhachHang
     {
         public int ID { get; set; }
-        public string TenDanhMuc { get; set; }
+        public string HoVaTen { get; set; }
+        public string DienThoai { get; set; }
         public bool TrangThai { get; set; }
-        public string MoTa { get; set; }
-        public ICollection<MonAn> MonAns { get; set; }
     }
 }

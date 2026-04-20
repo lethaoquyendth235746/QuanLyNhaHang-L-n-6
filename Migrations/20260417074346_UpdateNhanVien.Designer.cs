@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QuanLyNhaHang.Data;
 
@@ -11,9 +12,11 @@ using QuanLyNhaHang.Data;
 namespace QuanLyNhaHang.Migrations
 {
     [DbContext(typeof(QLNhaHangDbContext))]
-    partial class QLNhaHangDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260417074346_UpdateNhanVien")]
+    partial class UpdateNhanVien
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -230,30 +233,6 @@ namespace QuanLyNhaHang.Migrations
                     b.ToTable("GiaMonAn");
                 });
 
-            modelBuilder.Entity("QuanLyNhaHang.Data.KhachHang", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<string>("DienThoai")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("HoVaTen")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TrangThai")
-                        .HasColumnType("bit");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("KhachHang");
-                });
-
             modelBuilder.Entity("QuanLyNhaHang.Data.MonAn", b =>
                 {
                     b.Property<int>("ID")
@@ -437,7 +416,7 @@ namespace QuanLyNhaHang.Migrations
             modelBuilder.Entity("QuanLyNhaHang.Data.DonHang", b =>
                 {
                     b.HasOne("QuanLyNhaHang.Data.Ban", "Ban")
-                        .WithMany("DonHangs")
+                        .WithMany()
                         .HasForeignKey("BanID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -484,11 +463,6 @@ namespace QuanLyNhaHang.Migrations
                         .IsRequired();
 
                     b.Navigation("VaiTro");
-                });
-
-            modelBuilder.Entity("QuanLyNhaHang.Data.Ban", b =>
-                {
-                    b.Navigation("DonHangs");
                 });
 
             modelBuilder.Entity("QuanLyNhaHang.Data.Combo", b =>
