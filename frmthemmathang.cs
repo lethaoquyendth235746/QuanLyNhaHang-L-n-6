@@ -187,8 +187,8 @@ namespace QuanLyNhaHang
             if (parentForm != null)
             {
                 frmdshienthoics frm = new frmdshienthoics();
-                frm.Owner = parentForm;
-                parentForm.OpenChildForm(frm);
+                
+                
             }
         }
     }

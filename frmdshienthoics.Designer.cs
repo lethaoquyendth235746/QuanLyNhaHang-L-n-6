@@ -100,15 +100,14 @@
             dgvMatHang.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMatHang.Size = new Size(1243, 512);
             dgvMatHang.TabIndex = 5;
-//            dgvMatHang.CellContentDoubleClick += dgvMatHang_CellContentDoubleClick;
             dgvMatHang.CellDoubleClick += dgvMatHang_CellDoubleClick;
             // 
             // picTimKiem
             // 
             picTimKiem.BackColor = Color.White;
-            picTimKiem.ForeColor = SystemColors.ControlText;
+            picTimKiem.ForeColor = Color.Coral;
             picTimKiem.IconChar = FontAwesome.Sharp.IconChar.Search;
-            picTimKiem.IconColor = SystemColors.ControlText;
+            picTimKiem.IconColor = Color.Coral;
             picTimKiem.IconFont = FontAwesome.Sharp.IconFont.Auto;
             picTimKiem.IconSize = 27;
             picTimKiem.Location = new Point(548, 99);
@@ -128,6 +127,8 @@
             Controls.Add(txtTimKiem);
             Controls.Add(btnXoa);
             Controls.Add(btnThemMatHang);
+            ForeColor = Color.Coral;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmdshienthoics";
             Text = "frmdshienthoics";
             Load += frmdshienthoics_Load;

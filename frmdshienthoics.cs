@@ -30,6 +30,7 @@ namespace QuanLyNhaHang
             LoadDanhSachMatHang();
             DinhDangDataGridView();
             dgvMatHang.CellDoubleClick += dgvMatHang_CellDoubleClick;
+            
         }
         private void TaoCotDataGridView()
         {
@@ -240,14 +241,12 @@ namespace QuanLyNhaHang
 
         private void btnThemMatHang_Click(object sender, EventArgs e)
         {
-            frmchinhs parentForm = this.Owner as frmchinhs;
+            frmthemmathang f = new frmthemmathang();
 
-            if (parentForm != null)
-            {
-                frmthemmathang f = new frmthemmathang();
-                f.Owner = parentForm; // giữ chuỗi điều hướng
-                parentForm.OpenChildForm(f);
-            }
+            f.MdiParent = this.MdiParent; // QUAN TRỌNG
+            f.WindowState = FormWindowState.Maximized;
+
+            f.Show();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -310,7 +309,8 @@ namespace QuanLyNhaHang
             {
                 frmthongtinmathang f = new frmthongtinmathang(idMonAn);
                 f.Owner = parentForm;
-                parentForm.OpenChildForm(f);
+                
+
             }
 
         }

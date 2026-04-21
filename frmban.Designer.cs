@@ -1,6 +1,6 @@
 ﻿namespace QuanLyNhaHang
 {
-    partial class frmdatban
+    partial class frmban
     {
         /// <summary>
         /// Required designer variable.
@@ -34,14 +34,18 @@
             btnSua = new FontAwesome.Sharp.IconButton();
             btnThem = new FontAwesome.Sharp.IconButton();
             groupBox1 = new GroupBox();
+            chkHoatDong = new CheckBox();
+            numSoChoNgoi = new NumericUpDown();
             cbTrangThai = new ComboBox();
-            txtSoChoNgoi = new TextBox();
             txtTenBan = new TextBox();
+            txtMaSo = new TextBox();
+            label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvBan).BeginInit();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numSoChoNgoi).BeginInit();
             SuspendLayout();
             // 
             // dgvBan
@@ -61,6 +65,7 @@
             dgvBan.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvBan.Size = new Size(885, 500);
             dgvBan.TabIndex = 36;
+            dgvBan.CellClick += dgvBan_CellClick;
             // 
             // btnLuu
             // 
@@ -73,12 +78,13 @@
             btnLuu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnLuu.IconSize = 30;
             btnLuu.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLuu.Location = new Point(313, 478);
+            btnLuu.Location = new Point(313, 552);
             btnLuu.Name = "btnLuu";
             btnLuu.Size = new Size(121, 44);
             btnLuu.TabIndex = 35;
             btnLuu.Text = "Lưu lại";
             btnLuu.UseVisualStyleBackColor = false;
+            btnLuu.Click += btnLuu_Click;
             // 
             // btnXoa
             // 
@@ -91,12 +97,13 @@
             btnXoa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnXoa.IconSize = 30;
             btnXoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnXoa.Location = new Point(313, 401);
+            btnXoa.Location = new Point(313, 475);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(121, 44);
             btnXoa.TabIndex = 34;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 
@@ -109,12 +116,13 @@
             btnSua.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnSua.IconSize = 30;
             btnSua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSua.Location = new Point(48, 478);
+            btnSua.Location = new Point(62, 552);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(128, 44);
             btnSua.TabIndex = 32;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = false;
+            btnSua.Click += btnSua_Click;
             // 
             // btnThem
             // 
@@ -127,27 +135,48 @@
             btnThem.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnThem.IconSize = 30;
             btnThem.ImageAlign = ContentAlignment.MiddleLeft;
-            btnThem.Location = new Point(48, 401);
+            btnThem.Location = new Point(62, 475);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(128, 44);
             btnThem.TabIndex = 33;
             btnThem.Text = "Thêm ";
             btnThem.UseVisualStyleBackColor = false;
+            btnThem.Click += btnThem_Click;
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(chkHoatDong);
+            groupBox1.Controls.Add(numSoChoNgoi);
             groupBox1.Controls.Add(cbTrangThai);
-            groupBox1.Controls.Add(txtSoChoNgoi);
             groupBox1.Controls.Add(txtTenBan);
+            groupBox1.Controls.Add(txtMaSo);
+            groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(48, 64);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(386, 321);
+            groupBox1.Size = new Size(386, 405);
             groupBox1.TabIndex = 31;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin bàn";
+            // 
+            // chkHoatDong
+            // 
+            chkHoatDong.AutoSize = true;
+            chkHoatDong.Location = new Point(36, 335);
+            chkHoatDong.Name = "chkHoatDong";
+            chkHoatDong.Size = new Size(103, 24);
+            chkHoatDong.TabIndex = 28;
+            chkHoatDong.Text = "Hoạt động";
+            chkHoatDong.UseVisualStyleBackColor = true;
+            // 
+            // numSoChoNgoi
+            // 
+            numSoChoNgoi.Location = new Point(36, 271);
+            numSoChoNgoi.Name = "numSoChoNgoi";
+            numSoChoNgoi.Size = new Size(243, 27);
+            numSoChoNgoi.TabIndex = 27;
             // 
             // cbTrangThai
             // 
@@ -157,19 +186,28 @@
             cbTrangThai.Size = new Size(305, 28);
             cbTrangThai.TabIndex = 26;
             // 
-            // txtSoChoNgoi
-            // 
-            txtSoChoNgoi.Location = new Point(38, 118);
-            txtSoChoNgoi.Name = "txtSoChoNgoi";
-            txtSoChoNgoi.Size = new Size(303, 27);
-            txtSoChoNgoi.TabIndex = 25;
-            // 
             // txtTenBan
             // 
-            txtTenBan.Location = new Point(38, 54);
+            txtTenBan.Location = new Point(38, 118);
             txtTenBan.Name = "txtTenBan";
             txtTenBan.Size = new Size(303, 27);
             txtTenBan.TabIndex = 25;
+            // 
+            // txtMaSo
+            // 
+            txtMaSo.Location = new Point(38, 54);
+            txtMaSo.Name = "txtMaSo";
+            txtMaSo.Size = new Size(303, 27);
+            txtMaSo.TabIndex = 25;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(38, 248);
+            label4.Name = "label4";
+            label4.Size = new Size(88, 20);
+            label4.TabIndex = 24;
+            label4.Text = "Số chổ ngồi";
             // 
             // label3
             // 
@@ -185,18 +223,18 @@
             label2.AutoSize = true;
             label2.Location = new Point(36, 95);
             label2.Name = "label2";
-            label2.Size = new Size(88, 20);
+            label2.Size = new Size(61, 20);
             label2.TabIndex = 24;
-            label2.Text = "Số chổ ngồi";
+            label2.Text = "Tên Bàn";
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Location = new Point(38, 31);
             label1.Name = "label1";
-            label1.Size = new Size(61, 20);
+            label1.Size = new Size(59, 20);
             label1.TabIndex = 24;
-            label1.Text = "Tên bàn";
+            label1.Text = "Mã bàn";
             // 
             // frmdatban
             // 
@@ -211,9 +249,11 @@
             Controls.Add(groupBox1);
             Name = "frmdatban";
             Text = "frmdatban";
+            Load += frmdatban_Load;
             ((System.ComponentModel.ISupportInitialize)dgvBan).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numSoChoNgoi).EndInit();
             ResumeLayout(false);
         }
 
@@ -226,10 +266,13 @@
         private FontAwesome.Sharp.IconButton btnThem;
         private GroupBox groupBox1;
         private ComboBox cbTrangThai;
-        private TextBox txtSoChoNgoi;
         private TextBox txtTenBan;
+        private TextBox txtMaSo;
         private Label label3;
         private Label label2;
         private Label label1;
+        private CheckBox chkHoatDong;
+        private NumericUpDown numSoChoNgoi;
+        private Label label4;
     }
 }
